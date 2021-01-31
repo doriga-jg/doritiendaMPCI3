@@ -18,9 +18,9 @@ class Productos extends CI_Controller
         $item = new MercadoPago\Item();
 
         //Información del ítem
-        $item->id= 12345;
-        $item->title = 'Doriproducto';
-        $item->description = 'Un doriproducto super padriuris';
+        $item->id= 1234;
+        $item->title = 'Nombre del producto';
+        $item->description = 'Dispositivo móvil de Tienda e-commerce';
         $item->category_id = "others";
         $item->quantity = 1;
         $item->currency_id="MXN";
@@ -33,26 +33,41 @@ class Productos extends CI_Controller
         $payer = new MercadoPago\Payer();
         
         //Payer info
-        $payer->name = "Joge";
-        $payer->surname = "Pérez";
-        $payer->email = "joge@hotmail.com";
+        $payer->name = "Lalo";
+        $payer->surname = "Landa";
+        $payer->email = "test_user_81131286@testuser.com";
         $payer->date_created = "2021-01-02T12:58:41.425-04:00";
         $payer->phone = array(
-            "area_code" => "+52",
-            "number" => "5513944520"
+            "area_code" => "52",
+            "number" => "5549737300"
         );
         
         $payer->address = array(
-            "street_name" => "Naranjo",
-            "street_number" => 284,
-            "zip_code" => "06450"
+            "street_name" => "Insurgentes Sur",
+            "street_number" => 1602,
+            "zip_code" => "03940"
         );
+
+        //Add external_reference to the preference
+		$personal_e_reference = 'j.gab2803@gmail.com';
+		$preference -> external_reference = $personal_e_reference;
+
+        //Info about the payment for the exam client
+		$preference->payment_methods = array(
+			"excluded_payment_methods" => array(
+				array("id" => "amex")
+			),
+			"excluded_payment_types" => array(
+				array("id" => "atm")
+			),
+			"installments" => 6		//Max number of payments according to the client
+		);
 
         //Guardamos la payer info en la preferencia
         $preference -> payers = array($payer);
 
         // Pasamos items a string
-        $itemString = implode(',', (array)$item);
+        $itemString = implode(',', (array) $item);
 
         //Establecemos las backurls en urls
         $urls = array(
