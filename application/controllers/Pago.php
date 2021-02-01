@@ -30,7 +30,7 @@ class Pago extends CI_Controller
     public function exitoso()
     {
 
-		$token = MercadoPago\SDK::setAccessToken(MP_TEST_TOKEN);
+		$token = MercadoPago\SDK::setAccessToken(MP_EXAM_TOKEN);
 
 		$getData = (object) $_GET;
 		/*
