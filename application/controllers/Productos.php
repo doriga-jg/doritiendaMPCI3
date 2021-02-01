@@ -74,7 +74,7 @@ class Productos extends CI_Controller
 		$preference -> external_reference = $personal_e_reference;
 		$preference -> auto_return = 'approved';
 		$preference -> notification_url = '';
-		$preference -> collector_id = 617633181;
+		//$preference -> collector_id = 617633181;
 
         //Info about the payment for the exam client
 		$preference->payment_methods = array(
