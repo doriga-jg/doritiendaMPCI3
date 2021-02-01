@@ -74,7 +74,6 @@ class Productos extends CI_Controller
 		$preference -> external_reference = $personal_e_reference;
 		$preference -> auto_return = 'approved';
 		$preference -> notification_url = '';
-		//$preference -> collector_id = 617633181;
 
         //Info about the payment for the exam client
 		$preference->payment_methods = array(
@@ -118,21 +117,5 @@ class Productos extends CI_Controller
 
 		$this->load->view('productos', $dataToView);
 	}
-
-    function preferenceMP(){
-
-    }
-
-    function paymentMP(){
-        
-        //De nuevo se pide el token de MP
-        $token = MercadoPago\SDK::setAccessToken(DORI_TOKEN);
-
-        //Creamos un objeto de pago y asignamos su infomación con valores fijos
-        $payment = new MercadoPago\Payment();
-        $payment -> transaction_amount = 390;
-        $payment -> token = 'CARD_TOKEN';
-
-    }
 
 }

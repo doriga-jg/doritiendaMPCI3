@@ -1,6 +1,5 @@
 <?php include('includes/header.php') ?>
 
-
     <section class="d-flex justify-content-center pt-3" style="background-color: #eee;">
         <div class="d-flex flex-column w-75 h-auto pr-4 pl-4 pt-3 pb-3 border rounded" style="background-color: white;">
             <h2>ESTOS SON LOS CELULARES A COMPRAR CON MERCADO PAGO</h2>
