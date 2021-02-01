@@ -19,6 +19,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <script type="text/javascript" src="<?php echo base_url('public/dev_assets/js/productos.js');?>"></script>
 
+	<script src="https://www.mercadopago.com/v2/security.js" view="productos"></script>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 

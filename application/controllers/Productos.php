@@ -8,11 +8,13 @@ class Productos extends CI_Controller
 
     public function index()
 	{
-        //Pedir token y almacenarlo en $token
-        $token = MercadoPago\SDK::setAccessToken(MP_TEST_TOKEN);
+        //Token e IntegratorId
+        MercadoPago\SDK::setAccessToken(MP_EXAM_TOKEN);
+		MercadoPago\SDK::setIntegratorId(MP_EXAM_INTEGRATOR_ID);
 
-        //Crear objeto de preferencia y almacenarlo en $preference
-        $preference = new MercadoPago\Preference();
+        /*
+         * Item
+         */
 
         //Creamos ítem
         $item = new MercadoPago\Item();
@@ -26,14 +28,26 @@ class Productos extends CI_Controller
         $item->currency_id="MXN";
         $item->unit_price = 390;
 
+        /*
+         * Preference
+         */
+
+		//Crear objeto de preferencia y almacenarlo en $preference
+		$preference = new MercadoPago\Preference();
+
         //Guardamos la info del item en la preferencia
         $preference -> items = array($item);
+
+        /*
+         * Payer
+         */
 
         //Creamos payer
         $payer = new MercadoPago\Payer();
         
         //Payer info
-        $payer->name = "Lalo";
+        $payer->id = 655253974;
+		$payer->name = "Lalo";
         $payer->surname = "Landa";
         $payer->email = "test_user_81131286@testuser.com";
         $payer->date_created = "2021-01-02T12:58:41.425-04:00";
@@ -48,9 +62,19 @@ class Productos extends CI_Controller
             "zip_code" => "03940"
         );
 
+        //Guardamos la payer info en la preferencia
+		$preference -> payers = array($payer);
+
+		/*
+		 * More data
+		 */
+
         //Add external_reference to the preference
 		$personal_e_reference = 'j.gab2803@gmail.com';
 		$preference -> external_reference = $personal_e_reference;
+		$preference -> auto_return = 'approved';
+		$preference -> notification_url = '';
+		$preference -> collector_id = 617633181;
 
         //Info about the payment for the exam client
 		$preference->payment_methods = array(
@@ -63,8 +87,9 @@ class Productos extends CI_Controller
 			"installments" => 6		//Max number of payments according to the client
 		);
 
-        //Guardamos la payer info en la preferencia
-        $preference -> payers = array($payer);
+		/*
+		 * Back URLs
+		 */
 
         // Pasamos items a string
         $itemString = implode(',', (array) $item);
@@ -78,6 +103,10 @@ class Productos extends CI_Controller
 
         //Guardamos las backurls
         $preference -> back_urls = $urls;
+
+		/*
+ 		* Saving & sending to View
+ 		*/
 
         //Guardamos la preferencia
         $preference -> save();

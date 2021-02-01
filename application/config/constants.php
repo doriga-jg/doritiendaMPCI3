@@ -87,3 +87,5 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
  * Custom Constants
  */
 defined('MP_TEST_TOKEN')	OR define('MP_TEST_TOKEN', 'TEST-6400950492760841-012801-91e89998789b2b8883330c84ff71103d-698071882'); 	//MercadoPago Test Access Token
+defined('MP_EXAM_TOKEN')	OR define('MP_EXAM_TOKEN', 'TEST-6400950492760841-012801-91e89998789b2b8883330c84ff71103d-698071882'); 	//MercadoPago Test Access Token
+defined('MP_EXAM_INTEGRATOR_ID')	OR define('MP_EXAM_INTEGRATOR_ID', 'dev_24c65fb163bf11ea96500242ac130004'); 	//MercadoPago Test Access Token
