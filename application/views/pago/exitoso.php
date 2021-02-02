@@ -38,7 +38,7 @@
 				</a>
 			</div>
 			<div class="d-flex justify-content-center">
-				<a href="https://api.mercadopago.com/v1/payments/"<?php echo $payment_id?>>
+				<a href="<?php echo 'https://api.mercadopago.com/v1/payments/'.$payment_id?>">
 					<button class="btn btn-outline-dark" style="border-radius: 50px; height: 4rem; width: 15rem">
 						VER API
 						<span class="ml-2">
