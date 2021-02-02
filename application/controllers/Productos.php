@@ -73,7 +73,7 @@ class Productos extends CI_Controller
 		$personal_e_reference = 'j.gab2803@gmail.com';
 		$preference -> external_reference = $personal_e_reference;
 		$preference -> auto_return = 'approved';
-		$preference -> notification_url = 'https://doritienda-mp.herokuapp.com/';
+		$preference -> notification_url = 'https://doritienda-mp.herokuapp.com/index.php/apimp/notification';
 
         //Info about the payment for the exam client
 		$preference->payment_methods = array(
