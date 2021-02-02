@@ -29,7 +29,9 @@ class ApiMP extends RestController
 				'pay_status' => $requestPayStatus
 			);
 
-			$file = fopen('http://localhost/doritiendaci3/writable/requestlog.txt', 'w+') or die('file not open');
+			$filename = APPPATH.'writable/requestlog.txt';
+
+			$file = fopen($filename, 'w+') or die('file not open');
 
 			$requestStr = strval($request);
 
