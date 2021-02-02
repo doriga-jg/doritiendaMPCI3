@@ -20,11 +20,13 @@ class ApiMP extends RestController
 
 			$requestObj = (object) $request;
 
+			$requestPayId = $requestObj -> id;
 			$requestPayStatus = $requestObj -> action;
 
 			$response = array(
-				'jsonMp' => $request,
-				'payStatus' => $requestPayStatus
+				'json_mp' => $request,
+				'pay_id' => $requestPayId,
+				'pay_status' => $requestPayStatus
 			);
 
 			$this->response( $response, 200);

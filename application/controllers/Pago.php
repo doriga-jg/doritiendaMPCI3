@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use ApiMP;
+
 class Pago extends CI_Controller
 {
 	public function mpCatcher ($payStatus){
