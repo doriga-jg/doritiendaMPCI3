@@ -95,9 +95,9 @@ class Productos extends CI_Controller
 
         //Establecemos las backurls en urls
         $urls = array(
-            "failure" => site_url('pago/error?item_data=' . $itemString),
-            "pending" => site_url('pago/pendiente?item_id='.$item->id),
-            "success" => site_url('pago/exitoso?item_id='.$item->id)
+            "failure" => site_url('pago/mpCatcher/error?item_data=' . $itemString),
+            "pending" => site_url('pago/mpCatcher/pending?item_id='.$item->id),
+            "success" => site_url('pago/mpCatcher/success?item_id='.$item->id)
         );
 
         //Guardamos las backurls
