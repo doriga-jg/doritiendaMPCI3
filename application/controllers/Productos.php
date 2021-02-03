@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-//use MercadoPago;
-
 class Productos extends CI_Controller
 {
 
@@ -27,6 +25,7 @@ class Productos extends CI_Controller
         $item->quantity = 1;
         $item->currency_id="MXN";
         $item->unit_price = 390;
+        $item->picture_url = base_url('public/static/img/product.jpg');
 
         /*
          * Preference
@@ -51,19 +50,21 @@ class Productos extends CI_Controller
         $payer->surname = "Landa";
         $payer->email = "test_user_81131286@testuser.com";
         $payer->date_created = "2021-01-02T12:58:41.425-04:00";
-        $payer->phone = array(
-            "area_code" => "52",
-            "number" => "5549737300"
-        );
-        
-        $payer->address = array(
-            "street_name" => "Insurgentes Sur",
-            "street_number" => 1602,
-            "zip_code" => "03940"
-        );
+
+		$payer->phone = array(
+			"area_code" => 52,
+			"number" => '5549737300'
+		);
+
+		$payerAddress = new stdClass();
+		$payerAddress->street_name ='Insurgentes Sur';
+		$payerAddress->street_number = '1602';
+		$payerAddress->zip_code = '03940';
+
+        $payer->address = $payerAddress;
 
         //Guardamos la payer info en la preferencia
-		$preference -> payers = array($payer);
+		$preference -> payer = $payer;
 
 		/*
 		 * More data
@@ -111,9 +112,15 @@ class Productos extends CI_Controller
         //Guardamos la preferencia
         $preference -> save();
 
+        $phone_info = $preference->payer->phone;
+        /*echo '<pre>', var_dump($preference) , '</pre>';
+        return;
+        die;*/
         $dataToView = array(
-            'preference' => $preference, 
-            'items' => $preference->items, 
+            'preference' => $preference,
+            'payer_info' => $preference->payer,
+			'phone_info' => $phone_info,
+            'items' => $preference->items
         );
 
 		$this->load->view('productos', $dataToView);
