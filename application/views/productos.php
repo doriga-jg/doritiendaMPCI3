@@ -2,7 +2,7 @@
 
     <section class="d-flex justify-content-center pt-3" style="background-color: #eee;">
         <div class="d-flex flex-column w-75 h-auto pr-4 pl-4 pt-3 pb-3 border rounded" style="background-color: white;">
-			<h2><?var_dump($phone_info)?></h2>
+			<!--<h2><?var_dump($phone_info)?></h2>-->
 			<h2>ESTOS SON LOS CELULARES A COMPRAR CON MERCADO PAGO</h2>
             <h5 class="d-flex align-self-center pt-4 pb-2">Compra aquí mismo gracias a las opciones que MercadoPago tiene para ti</h5>
             <p class="d-flex align-self-center w-75">
