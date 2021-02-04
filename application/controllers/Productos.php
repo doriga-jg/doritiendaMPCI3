@@ -52,16 +52,24 @@ class Productos extends CI_Controller
         $payer->date_created = "2021-01-02T12:58:41.425-04:00";
 
 		$payer->phone = array(
-			"area_code" => 52,
+			"area_code" => '52',
 			"number" => '5549737300'
 		);
 
+        /*
 		$payerAddress = new stdClass();
 		$payerAddress->street_name ='Insurgentes Sur';
 		$payerAddress->street_number = '1602';
 		$payerAddress->zip_code = '03940';
 
         $payer->address = $payerAddress;
+        */
+
+        $payer->address = array(
+            "street_name" => "Insurgentes Sur",
+            "street_number" => '1602',
+            "zip_code" => "11020" 
+        );
 
         //Guardamos la payer info en la preferencia
 		$preference -> payer = $payer;
@@ -74,8 +82,8 @@ class Productos extends CI_Controller
 		$personal_e_reference = 'j.gab2803@gmail.com';
 		$preference -> external_reference = $personal_e_reference;
 		$preference -> auto_return = 'approved';
-		$preference -> notification_url = 'https://doritienda-mp.herokuapp.com/index.php/apimp/notification';
-		//$preference -> notification_url = 'https://hookb.in/E7xx626B0MTDEEaxn8ER';
+		//$preference -> notification_url = 'https://doritienda-mp.herokuapp.com/index.php/apimp/notification';
+		$preference -> notification_url = 'https://hookb.in/dmRRMJGx6Qs9RRzPgqL9';
 
         //Info about the payment for the exam client
 		$preference->payment_methods = array(
